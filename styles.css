@@ -517,6 +517,75 @@ body {
     color: #1d4ed8;
 }
 
+/* Internship Section */
+.internship {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.internship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.internship-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.internship-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.internship-image {
+    width: 100%;
+    overflow: hidden; /* Ensures corners stay rounded inside card */
+}
+
+.internship-image img {
+    width: 100%;
+    height: auto; /* Keep aspect ratio */
+    display: block;
+    object-fit: cover; /* Crops slightly if needed to fill width */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.internship-content {
+    padding: 2rem;
+}
+
+.internship-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.internship-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.internship-content p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.internship-content li {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
 /* Footer */
 .footer {
     background: #1f2937;
