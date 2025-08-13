@@ -636,7 +636,7 @@ body {
 
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
     gap: 2rem;
 }
 
@@ -741,6 +741,26 @@ body {
     line-height: 1.6;
 }
 
+.volunteering-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.volunteering-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.volunteering-link:hover {
+    color: #1d4ed8;
+}
+
+
 /* Footer */
 .footer {
     background: #1f2937;
@@ -810,6 +830,10 @@ body {
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr; /* 1 per row on small screens */
     }
 }
 
