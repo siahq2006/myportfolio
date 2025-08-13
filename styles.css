@@ -586,6 +586,161 @@ body {
     line-height: 1.6;
 }
 
+.internship-reflection-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.internship-reflection-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.internship-reflection {
+    margin-top: 3rem;
+}
+
+
+/* Two-column layout: text (left) + image (right) */
+.internship-reflection-content {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;          /* top-align column content by default */
+}
+
+/* Keep the image on the right and vertically center it vs the whole text block */
+.internship-image {
+  display: flex;
+  justify-content: center;     /* center horizontally within the right column */
+  align-self: center;          /* ⬅️ vertically center in the grid row */
+}
+
+/* Image sizing */
+.Mandai-Wildlife-Group {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Certificates Section */
+.certificates {
+    padding: 80px 0;
+    background: white; 
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.certificates-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.certificates-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.certificates-image {
+    width: 100%;
+    overflow: hidden; /* Ensures corners stay rounded inside card */
+}
+
+.certificates-image img {
+    width: 100%;
+    height: auto; /* Keep aspect ratio */
+    display: block;
+    object-fit: cover; /* Crops slightly if needed to fill width */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Image sizing */
+.Microsoft-Cert {
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Image sizing */
+.Google-Cert {
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Volunteering Section */
+.volunteering {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.volunteering-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.volunteering-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.volunteering-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.volunteering-image {
+    width: 100%;
+    overflow: hidden; /* Ensures corners stay rounded inside card */
+}
+
+.volunteering-image img {
+    width: 100%;
+    height: auto; /* Keep aspect ratio */
+    display: block;
+    object-fit: cover; /* Crops slightly if needed to fill width */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Image sizing */
+.Coding-With-Kids {
+  height: auto;
+  border-radius: 20px;
+}
+
+.volunteering-content {
+    padding: 2rem;
+}
+
+.volunteering-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.volunteering-content p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
 /* Footer */
 .footer {
     background: #1f2937;
