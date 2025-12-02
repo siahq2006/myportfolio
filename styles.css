@@ -1,3 +1,113 @@
+/* THEME VARIABLES */
+
+/* Light Mode (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1f2937;
+  --text-muted: #6b7280;
+  --section-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --icon-color: #2563eb; /* light mode icons (blue) */
+}
+
+/* Dark Mode */
+.dark-mode {
+  --bg-color: #111827;
+  --text-color: #f3f4f6;
+  --text-muted: #9ca3af;
+  --section-bg: #1a1f29;
+  --card-bg: #2a3442;
+  --navbar-bg: rgba(17, 24, 39, 0.9);
+  --icon-color: #ffffff; /* icons turn white in dark mode */
+}
+
+.dark-mode .hero {
+    background: radial-gradient(circle at 20% 30%, rgba(109, 63, 168, 0.45) 0%, rgba(5, 5, 19, 0.2) 35%),
+                radial-gradient(circle at 70% 40%, rgba(160, 38, 120, 0.4) 0%, rgba(5, 5, 19, 0.15) 40%),
+                radial-gradient(circle at 50% 80%, rgba(49, 46, 129, 0.5) 0%, rgba(5, 5, 19, 0.1) 50%),
+                linear-gradient(135deg, #050513 0%, #0a0f3d 40%, #1a1030 75%, #050513 100%);
+}
+
+.dark-mode .navbar-brand {
+    color: #c084fc; /* soft purple (Tailwind violet-400) */
+}
+
+.dark-mode .navbar-brand:hover {
+    color: #d8b4fe; /* lighter purple */
+}
+
+.dark-mode .stat h3 {
+   color: #fff
+}
+
+
+/* Toggle Button */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+.toggle-label {
+    width: 60px;
+    height: 30px;
+    background: #475569; /* cleaner gray */
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Slider knob */
+.toggle-label::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Icons */
+.toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+/* Sun on left */
+.toggle-icon.sun {
+    left: 10px;
+    color: #facc15; /* cleaner yellow */
+}
+
+/* Moon on right */
+.toggle-icon.moon {
+    right: 10px;
+    color: #cbd5e1;
+}
+
+/* DARK MODE SWITCH ON */
+#themeSwitch:checked + .toggle-label {
+    background: #334155; /* darker slate */
+}
+
+#themeSwitch:checked + .toggle-label::after {
+    transform: translateX(30px);
+}
+
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -12,12 +122,12 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #ffffff;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -27,7 +137,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--navbar-bg);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 2rem;
@@ -37,20 +147,23 @@ body {
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #2563eb
 }
         
 .navbar-brand:hover {
-    color: #1d4ed8;
+    color: var(--text-color);
+    opacity: 1;
 }
 
 .nav-link {
     font-weight: 500;
     position: relative;
+    color: var(--text-color);
 }
 
 .nav-link:hover {
-    color: #2563eb;
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
 .nav-link::after {
@@ -189,7 +302,7 @@ body {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    color: #1f2937;
+    color: var(--text-color);
     position: relative;
 }
 
@@ -208,7 +321,7 @@ body {
 /* About Section */
 .about {
     padding: 80px 0;
-    background: #f8fafc;
+    background: var(--section-bg);
 }
 
 .about-content {
@@ -224,7 +337,7 @@ body {
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: #4b5563;
+    color: var(--text-muted);
     line-height: 1.8;
 }
 
@@ -238,7 +351,7 @@ body {
 .stat {
     text-align: center;
     padding: 1.5rem;
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
@@ -256,7 +369,7 @@ body {
 }
 
 .stat p {
-    color: #6b7280;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
@@ -278,7 +391,7 @@ body {
 /* Skills Section */
 .skills {
     padding: 80px 0;
-    background: white;
+    background: var(--section-bg);
 }
 
 .skills-grid {
@@ -288,7 +401,7 @@ body {
 }
 
 .skill-category {
-    background: #f8fafc;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -303,7 +416,7 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #1f2937;
+    color: var(--text-color);
 }
 
 .skill-items {
@@ -320,7 +433,7 @@ body {
 
 .skill-name {
     font-weight: 500;
-    color: #374151;
+    color: var(--text-color);
 }
 
 .skill-bar {
@@ -340,7 +453,8 @@ body {
 /* Projects Section */
 .projects {
     padding: 80px 0;
-    background: #f8fafc;
+    background: var(--section-bg);
+;
 }
 
 .projects-grid {
@@ -350,7 +464,7 @@ body {
 }
 
 .project-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -384,11 +498,11 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: var(--text-color);
 }
 
 .project-content p {
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -415,13 +529,13 @@ body {
 }
 
 .project-link {
-    color: #2563eb;
+    color: var(--icon-color);
+    transition: color 0.3s ease;
     text-decoration: none;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color 0.3s ease;
 }
 
 .project-link:hover {
@@ -431,7 +545,7 @@ body {
 /* Hackathons Section */
 .hackathon {
     padding: 80px 0;
-    background: white;
+    background: var(--section-bg);
 }
 
 .hackathon-grid {
@@ -441,7 +555,7 @@ body {
 }
 
 .hackathon-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -476,24 +590,24 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: var(--text-color);
 }
 
 .hackathon-content h4 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: var(--text-color);
 }
 
 .hackathon-content p {
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
 .hackathon-content li {
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -504,13 +618,13 @@ body {
 }
 
 .hackathon-link {
-    color: #2563eb;
+    color: var(--icon-color);
+    transition: color 0.3s ease;
     text-decoration: none;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color 0.3s ease;
 }
 
 .hackathon-link:hover {
@@ -520,17 +634,17 @@ body {
 /* Internship Section */
 .internship {
     padding: 80px 0;
-    background: #f8fafc;
+    background: var(--section-bg);
 }
 
 .internship-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
 }
 
 .internship-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -564,30 +678,30 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: var(--text-color);
 }
 
 .internship-content h4 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: var(--text-color);
 }
 
 .internship-content p {
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
 .internship-content li {
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
 .internship-reflection-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -616,6 +730,7 @@ body {
 /* Keep the image on the right and vertically center it vs the whole text block */
 .internship-image {
   display: flex;
+  height: 280px; /* Set a consistent height */
   justify-content: center;     /* center horizontally within the right column */
   align-self: center;          /* ⬅️ vertically center in the grid row */
 }
@@ -631,17 +746,17 @@ body {
 /* Certificates Section */
 .certificates {
     padding: 80px 0;
-    background: white; 
+    background: var(--section-bg); 
 }
 
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
     gap: 2rem;
 }
 
 .certificates-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -682,7 +797,7 @@ body {
 /* Volunteering Section */
 .volunteering {
     padding: 80px 0;
-    background: #f8fafc;
+    background: var(--section-bg);
 }
 
 .volunteering-grid {
@@ -692,7 +807,7 @@ body {
 }
 
 .volunteering-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -732,11 +847,11 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: var(--text-color);
 }
 
 .volunteering-content p {
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -747,13 +862,13 @@ body {
 }
 
 .volunteering-link {
-    color: #2563eb;
+    color: var(--icon-color);
+    transition: color 0.3s ease;
     text-decoration: none;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color 0.3s ease;
 }
 
 .volunteering-link:hover {
@@ -763,7 +878,7 @@ body {
 
 /* Contact Section */
 .contact {
-    background: white;
+    background: var(--section-bg);
     text-align: center;
     padding: 3rem 0;
 }
@@ -771,14 +886,14 @@ body {
 .contact .section-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #1f2937;
+    color: var(--text-color);
     margin-bottom: 1.5rem;
 }
 
 .contact-content h4 {
     font-size: 1.1rem;
     font-weight: 500;
-    color: #4b5563;
+    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
@@ -805,6 +920,18 @@ body {
 .contact-content a:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
+}
+
+/* FORCE all FontAwesome icons to follow theme color */
+.icon,
+.fa-solid.icon,
+.fas.icon,
+.far.icon,
+.fab.icon,
+.hackathon-links a i,
+.project-links a i,
+.volunteering-links a i {
+    color: var(--icon-color) !important;
 }
 
 
